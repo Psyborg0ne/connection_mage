@@ -1,3 +1,13 @@
+#                     __                      ______              
+# .-----.-----.--.--.|  |--.-----.----.-----.|      |.-----.-----.
+# |  _  |__ --|  |  ||  _  |  _  |   _|  _  ||  --  ||     |  -__|
+# |   __|_____|___  ||_____|_____|__| |___  ||______||__|__|_____|#4689
+# |__|        |_____|                 |_____| gui.py
+# 
+# Licensed under the terms of the LICENSE file included in this repo.
+# Created On   : We, September 6th 2023, 10:39:35
+# Last Modified: Th, September 7th 2023, 01:59:59
+
 import tkinter as tk
 from tkinter import ttk
 
@@ -8,17 +18,17 @@ class Application(ttk.Frame):
         # Init
         root.title("Connection Mage")
         root.iconbitmap('./app.ico')
-        root.minsize(400, 600)
-        root.geometry("400x600+100+100")
+        root.minsize(400, 250)
+        root.geometry("400x250+100+100")
 
         #----------------------------------------------------------------------
         # Style
 
         style = ttk.Style()
-        style.theme_use("default")
+        style.theme_use("alt")
 
         # Button Styles
-        style.configure("TButton", font=("Helvetica", 16), foreground="white", padding=[10,10,10,10])
+        style.configure("TButton", font=("Helvetica", 16), foreground="white")
 
         style.configure('red.TButton', background="#e60000")
         style.map("red.TButton", background= [('active', '#ff1a1a')])
@@ -30,28 +40,18 @@ class Application(ttk.Frame):
         style.map("blue.TButton", background= [('active', '#99e6ff')])
 
         # Label Styles
-        style.configure("TLabel", font=("Helvetica", 16), foreground="black", padding=[10,10,10,10])
-        style.configure("title.TLabel", fontsize=32)
+        style.configure("TLabel", font=("Helvetica", 12), foreground="black", padx=10)
+        style.configure("title.TLabel", font=("Helvetica", 32))
+
+        # Entry Styles
+        style.configure("TEntry", font=("Helvetica", 12), foreground="black")
+
+        # Frame Styles
+        style.configure("TLabelFrame", font=("Helvetica", 12), foreground="black")
         
         # Style End
         #----------------------------------------------------------------------
-
-        # Frames
-        titleFrame = ttk.Frame(self).pack(fill="both", expand=True)
-        setupFrame = ttk.Frame(self).pack(fill="both", expand=True)
-        buttonFrame = ttk.Frame(self).pack(fill="both", expand=True)
-        logFrame = ttk.Frame(self).pack(fill="both", expand=True)
-
-        # Labels
-        ttk.Label(titleFrame, text="Connection Mage", style = "title.TLabel").pack(fill='both')
-
-
-
-        # Buttons
-        mybutton = ttk.Button(buttonFrame, text="Start", style = "green.TButton").pack(side='left')
-        myButton1 = ttk.Button(buttonFrame, text="Quit", style = "red.TButton").pack(side='left')
-        mybutton2 = ttk.Button(buttonFrame, text="Restore", style = "blue.TButton").pack(side='left')
-
-        self.pack(fill="both", expand = True)
+        
+        self.pack()
     
 

@@ -1,3 +1,13 @@
+#                     __                      ______              
+# .-----.-----.--.--.|  |--.-----.----.-----.|      |.-----.-----.
+# |  _  |__ --|  |  ||  _  |  _  |   _|  _  ||  --  ||     |  -__|
+# |   __|_____|___  ||_____|_____|__| |___  ||______||__|__|_____|#4689
+# |__|        |_____|                 |_____| app.py
+# 
+# Licensed under the terms of the LICENSE file included in this repo.
+# Created On   : We, September 6th 2023, 10:39:35
+# Last Modified: Th, September 7th 2023, 01:59:53
+
 import os
 import shutil
 import xml.etree.ElementTree as ET
@@ -10,13 +20,13 @@ default_ext_backup_file     = '.back'
 default_path_backup_file    = os.path.join(default_path_config_dir, f"{default_name_config_file}{default_ext_backup_file}")
 default_properties_dict     = {"DataAccess.DbServer": "localhost",
                                 "DataAccess.Database": "AxDB",
-                                "DataAccess.SqlUser": "admin",
-                                "DataAccess.SqlPwd": "password"}
+                                "DataAccess.SqlUser": "user",
+                                "DataAccess.SqlPwd": "pass"}
 
 def existsFile(_path_to_file)-> bool:
     return True if os.path.exists(_path_to_file) else False
 
-def createBackup(_path_to_file):
+def createBackup(_path_to_file= ''):
     try:
         if(existsFile(default_path_config_file)):
             print(f"FOUND: {default_path_config_file}")
@@ -73,7 +83,3 @@ def openAndWriteChanges(_properties)-> bool:
 def setPropertyField(_fieldName, _fieldValue)-> dict:
     default_properties_dict[_fieldName] = _fieldValue
     return default_properties_dict
-
-#restoreBackup()
-# createBackup(default_path_backup_file)
-# openAndWriteChanges(default_properties_dict)
